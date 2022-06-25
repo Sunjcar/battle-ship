@@ -1,0 +1,23 @@
+{
+  "name": "battle-ship",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sunjcar/battle-ship.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sunjcar/battle-ship/issues"
+  },
+  "homepage": "https://github.com/Sunjcar/battle-ship#readme",
+  "devDependencies": {
+    "webpack": "^5.73.0"
+  }
+}
