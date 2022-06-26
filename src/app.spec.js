@@ -45,7 +45,7 @@ describe('details', () => {
         expect(ship.Sunked()).toBe(true)
     })
 })
-
+ 
 describe('details', () => {
     const ship = shipFactory('Stealth');
     test('1 hits',() => {

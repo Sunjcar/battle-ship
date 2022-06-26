@@ -1,7 +1,6 @@
 import { SHIP_LENGTHS } from "./shipDetails";
 
 const shipFactory = ((type) => {
-
     //Name and size of the ship
     const id = type;
     const length = SHIP_LENGTHS[type];
