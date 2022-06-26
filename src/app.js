@@ -1,36 +1,11 @@
-const shipFactory = (() => {
-    const Sheldon = {
-        length: 6,
-        hit: 6,
-        sunk: false,
-    } 
+import { SHIP_LENGTHS } from "./shipDetails";
 
-    const Kaiden = {
-        length: 5,
-        hit: 5,
-        sunk: false,
-    }
+const shipFactory = ((type) => {
+    const id = type;
+    const length = SHIP_LENGTHS[type];
 
-    const subMarine = {
-        length:4,
-        hit: 4,
-        sunk: false
-    }
-
-    const stealthUnit = {
-        length: 2,
-        hit:2,
-        sunk: false
-    }
-
-    const goingMerry = {
-        length:1,
-        hit:1,
-        sunk: false
-    }
-
-})()
+    return {id, length}
+})
    
 
-   
-export default shipFactory
+module.exports = shipFactory
