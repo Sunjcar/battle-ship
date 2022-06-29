@@ -4,7 +4,6 @@ const shipFactory = ((type) => {
     //Name and size of the ship
     const id = type;
     const length = SHIP_LENGTHS[type];
-
     //Detect if ship is hit or not
     const hits = Array(length).fill(null);
     const detectHit = () => hits ;
@@ -24,7 +23,19 @@ const shipFactory = ((type) => {
             return true
         }else return false
     }
-    return {id, length, hit, detectHit,hitCounter,Sunked}
+
+    //Change ship axis 
+    let direction = 'horizontal'
+    const getDirection = () => {
+        if (direction === 'horizontal'){
+            direction = 'vertical'
+        }else {
+            direction = 'horizontal'
+        }
+    }
+
+    return {id, length, hit, detectHit,hitCounter,Sunked,getDirection}
 })
    
-module.exports = shipFactory
+/* module.exports = shipFactory */
+export default shipFactory
