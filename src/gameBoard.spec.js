@@ -1,7 +1,6 @@
 import gameBoard from './gameBoard'
 import shipFactory from "./app";
 
-
 describe('Gameboard',() => {
     const gameboard = gameBoard();
     test('empty board',() => {
@@ -45,3 +44,38 @@ describe('place vertical ship', () => {
         expect(gameboard.getBoard()[5][3]).toEqual({ship, index:2})
     })
 })
+
+describe('Return null if ships place out of board space', () => {
+    const gameboard = gameBoard();
+    const ship = shipFactory('Destroyer');
+
+    test('out-of-bounds ship horizontal', () => {
+      gameboard.placeShip(ship, 9, 9);
+      expect(gameboard.getBoard()[9][9]).toEqual(null);
+    });
+    test('out-of-bounds ship vertical', () => {
+      ship.changeDirection();
+      gameboard.placeShip(ship, 7, 7); 
+      expect(gameboard.getBoard()[7][7]).toEqual(null);
+    });
+  });
+
+  describe('Check if ship collides with another', () => {
+    const gameboard = gameBoard();
+    const kaiden = shipFactory('Kaiden');
+    const destroyer = shipFactory('Destroyer');
+
+    test('ship kaiden placement', () => {
+        gameboard.placeShip(kaiden, 3, 1);
+        expect(gameboard.getBoard()[3][1]).toEqual({
+            ship: kaiden, index: 0
+        })
+    })
+    test('ship collides with ship kaiden', () => {
+        destroyer.changeDirection();
+        gameboard.placeShip(destroyer, 1, 2);
+        expect(gameboard.getBoard()[1][2]).toEqual(null)
+    })
+  })
+
+
