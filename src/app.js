@@ -26,7 +26,8 @@ const shipFactory = ((type) => {
 
     //Change ship axis 
     let direction = 'horizontal'
-    const getDirection = () => {
+    const getDirection = () => direction
+    const changeDirection = () => {
         if (direction === 'horizontal'){
             direction = 'vertical'
         }else {
@@ -34,8 +35,7 @@ const shipFactory = ((type) => {
         }
     }
 
-    return {id, length, hit, detectHit,hitCounter,Sunked,getDirection}
+    return {id, length, hit, detectHit,hitCounter,Sunked,getDirection,changeDirection}
 })
    
-/* module.exports = shipFactory */
 export default shipFactory
