@@ -60,7 +60,7 @@ describe('Return null if ships place out of board space', () => {
     });
   });
 
-  describe('Check if ship collides with another', () => {
+describe('Check if ship collides with another', () => {
     const gameboard = gameBoard();
     const kaiden = shipFactory('Kaiden');
     const destroyer = shipFactory('Destroyer');
@@ -77,5 +77,31 @@ describe('Return null if ships place out of board space', () => {
         expect(gameboard.getBoard()[1][2]).toEqual(null)
     })
   })
+
+describe('Check if all ships are placed', () => {
+  const gameboard = gameBoard();
+  const sheldon = shipFactory('Sheldon')
+  const kaiden = shipFactory('Kaiden')
+  const destroyer = shipFactory('Destroyer')
+  const submarine = shipFactory('Submarine')
+  const stealh = shipFactory('Stealth')
+  const GoingMerry = shipFactory('GoingMerry')
+  test('Some ships placed', () => {
+    gameboard.placeShip(sheldon, 2, 0)
+    gameboard.placeShip(submarine, 3, 2)
+    gameboard.placeShip(GoingMerry, 5, 5)
+    expect(gameboard.areAllShipsPlaced()).toBe(false)
+  })
+  test('All ships placed', () => {
+    gameboard.placeShip(sheldon, 2, 0)
+    gameboard.placeShip(kaiden, 1, 0)
+    gameboard.placeShip(destroyer, 4,0)
+    gameboard.placeShip(submarine, 3, 2)
+    gameboard.placeShip(stealh, 8, 8)
+    gameboard.placeShip(GoingMerry, 5, 5)
+    expect(gameboard.areAllShipsPlaced()).toBe(true)
+  })
+})
+
 
 
