@@ -1,4 +1,5 @@
-const shipFactory = require('./app')
+/* const shipFactory = require('./app') */
+import shipFactory from "./app";
 
 describe('details', () => {
     const ship = shipFactory('GoingMerry');
