@@ -110,7 +110,6 @@ describe('receive attack',() => {
   gameboard.placeShip(destroyer, 1, 2)
   submarine.changeDirection()
   gameboard.placeShip(submarine, 4, 5)
-
   test('attack destroyer and submarine', () => {
     gameboard.receiveAttack(1,2)
     gameboard.receiveAttack(1,3)
@@ -120,6 +119,14 @@ describe('receive attack',() => {
     expect(destroyer.detectHit()).toEqual(['hit', 'hit', null, 'hit'])
     expect(submarine.detectHit()).toEqual(['hit',null,'hit'])
   })
+  test('2 miss and a hit', () => {
+    gameboard.receiveAttack(0, 0);
+    gameboard.receiveAttack(9, 9);
+    gameboard.receiveAttack(1, 2);
+    expect(gameboard.getBoard()[0][0]).toEqual('miss');
+    expect(gameboard.getBoard()[9][9]).toEqual('miss');
+    expect(gameboard.getBoard()[1][2]).toEqual('hit');
+  });
 })
 
 describe('Checks if all ships are sunked', () => {
