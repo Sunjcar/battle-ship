@@ -7,22 +7,12 @@ const shipFactory = ((type) => {
     //Detect if ship is hit or not
     const hits = Array(length).fill(null);
     const detectHit = () => hits ;
-    const hit = () => {
-        hits.pop();
-        return hits
-    }
+    const hit = (i) => (hits[i]) = 'hit'
 
-    //Returns current ship length
-    const hitCounter = () => {
-        return length - hits.length
-    }
 
     //Returns ship status sunk or unsunk
-    const Sunked = () => {
-        if (hits.length === 0){
-            return true
-        }else return false
-    }
+    const Sunked = () => hits.every((hit) => hit === 'hit')
+
 
     //Change ship axis 
     let direction = 'horizontal'
@@ -35,7 +25,7 @@ const shipFactory = ((type) => {
         }
     }
 
-    return {id, length, hit, detectHit,hitCounter,Sunked,getDirection,changeDirection}
+    return {id, length, hit, detectHit,Sunked,getDirection,changeDirection}
 })
    
 export default shipFactory
