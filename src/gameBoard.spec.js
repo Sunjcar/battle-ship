@@ -103,5 +103,45 @@ describe('Check if all ships are placed', () => {
   })
 })
 
+describe('receive attack',() => {
+  const gameboard = gameBoard();
+  const destroyer = shipFactory('Destroyer')
+  const submarine = shipFactory('Submarine')
+  gameboard.placeShip(destroyer, 1, 2)
+  submarine.changeDirection()
+  gameboard.placeShip(submarine, 4, 5)
 
+  test('attack destroyer and submarine', () => {
+    gameboard.receiveAttack(1,2)
+    gameboard.receiveAttack(1,3)
+    gameboard.receiveAttack(1,5)
+    gameboard.receiveAttack(4,5)
+    gameboard.receiveAttack(6,5)
+    expect(destroyer.detectHit()).toEqual(['hit', 'hit', null, 'hit'])
+    expect(submarine.detectHit()).toEqual(['hit',null,'hit'])
+  })
+})
+
+describe('Checks if all ships are sunked', () => {
+  const gameboard = gameBoard();
+  const destroyer = shipFactory('Destroyer')
+  const submarine = shipFactory('Submarine')
+  gameboard.placeShip(destroyer, 1, 2)
+  submarine.changeDirection()
+  gameboard.placeShip(submarine, 2, 3)
+
+  test('1 ship is sunked', () => {
+    gameboard.receiveAttack(1,2)
+    gameboard.receiveAttack(1,3)
+    gameboard.receiveAttack(1,4)
+    gameboard.receiveAttack(1,5)
+    expect(gameboard.areAllShipsSunk()).toEqual(false)
+  })
+  test('both ship is sunked', () => {
+    gameboard.receiveAttack(2,3)
+    gameboard.receiveAttack(3,3)
+    gameboard.receiveAttack(4,3)
+    expect(gameboard.areAllShipsSunk()).toEqual(true)
+  })
+})
 
