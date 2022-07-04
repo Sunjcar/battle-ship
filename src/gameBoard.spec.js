@@ -1,5 +1,7 @@
-import gameBoard from './gameBoard'
+import gameBoard from './gameBoard';
 import shipFactory from "./app";
+import Player from './player';
+import playerShips from './shipDetails'
 
 describe('Gameboard',() => {
     const gameboard = gameBoard();
@@ -152,3 +154,15 @@ describe('Checks if all ships are sunked', () => {
   })
 })
 
+describe('Auto place ships',() => {
+  const gameboard = gameBoard();
+  const ships = Player().getShips()
+  gameboard.autoPlaceShip(ships)
+  test('Are all ships placed', () => {
+    expect(gameboard.areAllShipsPlaced()).toBe(true)
+  })
+  test('total length matches all ships placed', () => {
+    const actual = gameboard.getBoard().flat().filter((cell) => cell !== null).length
+    expect(actual).toBe(21);
+  });
+})

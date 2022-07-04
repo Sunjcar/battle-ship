@@ -26,3 +26,6 @@ export const playerShips = (ship) => {
 }
 
 //Randomize ship locations 
+const Random = (arr = 10) => Math.floor(Math.random() * arr)
+export const randomCoord = (arr = 10) => [Random(arr), Random(arr)]
+

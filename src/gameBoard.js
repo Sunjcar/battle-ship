@@ -1,4 +1,4 @@
-import { SHIP_TYPES } from "./shipDetails";
+import { randomCoord, SHIP_TYPES } from "./shipDetails";
 import shipFactory from "./app";
 
 const gameBoard = (() => {
@@ -65,7 +65,25 @@ const gameBoard = (() => {
 
   const areAllShipsSunk = () => placedShips.every((ship) => ship.Sunked())
 
-    return {getBoard, placeShip, areAllShipsPlaced, receiveAttack, areAllShipsSunk}
+  //Randomize placement of ships
+  const randomPlaceShip = (ship) => {
+    const [y,x] = randomCoord()
+    const changeAxis = Math.random() > 0.5;
+    if (changeAxis){
+      ship.changeDirection()
+    };
+    if (!placeShip(ship, y, x)){
+      randomPlaceShip(ship)
+    }; 
+  }
+
+  const autoPlaceShip = (ships) => {
+    for (const ship in ships) {
+      randomPlaceShip(ships[ship])
+    }
+  }
+
+    return {getBoard, placeShip, areAllShipsPlaced, receiveAttack, areAllShipsSunk, autoPlaceShip}
 })
 
 export default gameBoard
