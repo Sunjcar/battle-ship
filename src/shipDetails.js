@@ -19,3 +19,10 @@ export const SHIP_LENGTHS = {
     GoingMerry: 1,
 }
 
+export const playerShips = (ship) => {
+    const ships = {}
+    ship.forEach((ship) => (ships[ship] = shipFactory(ship)))
+    return ships
+}
+
+//Randomize ship locations 
