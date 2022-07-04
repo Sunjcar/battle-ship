@@ -20,3 +20,13 @@ describe('Player attack', () => {
         expect(enemyBoard.getBoard()[1][1]).toBe('miss')
     })
 })
+
+describe('Computer auto attack', () => {
+    const enemyBoard = gameBoard();
+    test('Selects a random spot to attack',() => {
+        computer.autoAttack(enemyBoard)
+        //Checks if any cells have been hit
+        expect(enemyBoard.getBoard().flat().every((cell) => cell === null))
+        .toBe(false)
+    })
+})
