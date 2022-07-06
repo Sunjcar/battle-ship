@@ -1,7 +1,7 @@
 import { randomCoord, SHIP_TYPES } from "./shipDetails";
 import shipFactory from "./app";
 
-const gameBoard = (() => {
+const gameBoard = () => {
   //Create a 10x10 game board;
   let board = Array(10).fill(null).map(() => Array(10).fill(null));
   const getBoard = () => board;
@@ -83,8 +83,14 @@ const gameBoard = (() => {
     }
   }
 
-    return {getBoard, placeShip, areAllShipsPlaced, receiveAttack, areAllShipsSunk, autoPlaceShip}
-})
+  const reset = () => {
+    board = Array(10).fill(null).map(() => Array(10).fill(null));
+    placedShips = [];
+  };
+
+    return {getBoard, placeShip, areAllShipsPlaced, receiveAttack, 
+      areAllShipsSunk, autoPlaceShip, reset}
+}
 
 export default gameBoard
 

@@ -166,3 +166,13 @@ describe('Auto place ships',() => {
     expect(actual).toBe(21);
   });
 })
+
+describe('Resets board', () => {
+  const gameboard = gameBoard()
+  const ships = Player().getShips()
+  gameboard.autoPlaceShip(ships)
+  gameboard.reset()
+  test('board is empty', () => {
+    expect(gameboard.getBoard().flat().every((cell) => cell === null)).toEqual(true)
+  })
+})
