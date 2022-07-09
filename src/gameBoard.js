@@ -10,7 +10,7 @@ const gameBoard = () => {
   const areAllShipsPlaced = () => placedShips.length === SHIP_TYPES.length;
 
   const adjustCoords = (y0, x0, i, direction) => {
-    // default - horizontal
+    //Default direction = Horizontal
     let x = x0 + i;
     let y = y0;
     if (direction === 'vertical') {
@@ -52,13 +52,16 @@ const gameBoard = () => {
     }
     return cells.every((cell) => cell === null);
   };
-
+  let hitSound = new Audio ('../src/audio/sounds_explosion.wav')
+  let missSound = new Audio('../src//audio/sounds_splash.wav')
   const receiveAttack = (y, x) => {
     if(board[y][x] === null) {
         board[y][x] = 'miss'
+        missSound.play();
     }else if (board[y][x].ship){
       board[y][x].ship.hit(board[y][x].index)
       board[y][x] = 'hit'
+      hitSound.play();
     }
       return board[y][x]
   }
@@ -86,7 +89,7 @@ const gameBoard = () => {
   const reset = () => {
     board = Array(10).fill(null).map(() => Array(10).fill(null));
     placedShips = [];
-  };
+  }
 
     return {getBoard, placeShip, areAllShipsPlaced, receiveAttack, 
       areAllShipsSunk, autoPlaceShip, reset}

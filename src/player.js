@@ -16,11 +16,15 @@ const Player = (id = '') => {
           //If a cell is hit or missed already attack again
           autoAttack(enemyBoard);
         } else {
-          enemyBoard.receiveAttack(y, x);
-        }
-      };
+          setTimeout(() => {
+            enemyBoard.receiveAttack(y, x);
+          }, 2000);
+      }
+    }
+      
+    const resetShips = () => (ships = playerShips(SHIP_TYPES))
 
-    return {getID, getShips, attack, autoAttack}
+    return {getID, getShips, attack, autoAttack, resetShips,}
 }
 
 export default Player
