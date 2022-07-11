@@ -6,7 +6,8 @@ import gameBoard from "./gameBoard"
 
 const Game = (type) => {
 
-  const winSound = new Audio ('../src/audio/Win.mp3')
+  const winSound = new Audio ('../dist/audio/Win.mp3')
+  const loseSound = new Audio ('../dist/audio/lose.wav')
   //Create Players
   const p1 = Player('human');
   let p2;
@@ -75,6 +76,7 @@ const Game = (type) => {
         let winner = '';
         if (p1Board.areAllShipsSunk()) {
           winner = 'Computer wins!';
+          loseSound.play();
         } else if (p2Board.areAllShipsSunk()) {
           winner = 'You win!';
           winSound.play();

@@ -1,6 +1,7 @@
 import { SHIP_LENGTHS } from "./shipDetails";
 
 const shipFactory = ((type) => {
+
     //Name and size of the ship
     const id = type;
     const length = SHIP_LENGTHS[type];
@@ -8,6 +9,8 @@ const shipFactory = ((type) => {
     const hits = Array(length).fill(null);
     const detectHit = () => hits ;
     const hit = (i) => (hits[i]) = 'hit'
+
+    
 
 
     //Returns ship status sunk or unsunk

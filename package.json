@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "jest",
-    "watch": "jest --watch *.js"
+    "watch": "jest --watch *.js",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "webpack": "^5.73.0"
   },
   "dependencies": {
+    "node-sass": "^7.0.1",
     "presets": "^0.1.0"
   },
   "babel": {

@@ -6,6 +6,9 @@ const Player = (id = '') => {
     const getID = () => id
     const getShips = () => ships
 
+    let hitSound = new Audio ('../src/audio/sounds_explosion.wav')
+    let missSound = new Audio('../src//audio/sounds_splash.wav')
+
     //Attacks enemy board
     const attack = (y, x, enemyBoard) => enemyBoard.receiveAttack(y, x)
 
@@ -16,9 +19,9 @@ const Player = (id = '') => {
           //If a cell is hit or missed already attack again
           autoAttack(enemyBoard);
         } else {
-          setTimeout(() => {
             enemyBoard.receiveAttack(y, x);
-          }, 2000);
+            hitSound.pause()
+            missSound.pause()
       }
     }
       

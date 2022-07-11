@@ -493,7 +493,7 @@ body {
   box-shadow: 0px 0px 5px 0px red;
 }
 .hit {
-  background-image: url(../src/images/explosion-bomb-svgrepo-com.svg)
+  background-image: url(../dist/images/explosion-bomb-svgrepo-com.svg)
 }
 .miss {
   background-color: #0f3366;
@@ -542,31 +542,31 @@ body {
 
 .GoingMerry{
   background-color:#ad1400;
-  background-image: url(../src/images/sheep-svgrepo-com.svg);
+  background-image: url(../dist/images/sheep-svgrepo-com.svg);
 }
 .Stealth {
   background-color: #475569;
-  background-image: url(../src/images/stealth-svgrepo-com.svg);
+  background-image: url(../dist/images/stealth-svgrepo-com.svg);
 }
 
 .Submarine{
   background-color: #00d9ff;
-  background-image: url(../src/images/submarine-svgrepo-com.svg);
+  background-image: url(../dist/images/submarine-svgrepo-com.svg);
 }
 
 .Destroyer{
   background-color: wheat;
-  background-image: url(../src/images/ship-svgrepo-com.svg);
+  background-image: url(../dist/images/ship-svgrepo-com.svg);
 }
 
 .Kaiden{
   background-color: white;
-  background-image: url(../src/images/dummy-svgrepo-com.svg)
+  background-image: url(../dist/images/dummy-svgrepo-com.svg)
 }
 
 .Sheldon{ 
   background-color: greenyellow;
-  background-image: url(../src/images/ships-boat-svgrepo-com.svg)
+  background-image: url(../dist/images/ships-boat-svgrepo-com.svg)
 }
 .fleet-autoplace,
 .play-again,
