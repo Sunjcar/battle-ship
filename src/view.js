@@ -58,6 +58,7 @@ const View = (() => {
   const startGame = () => {
     elements.p1Gameboard.classList.toggle('grid-disabled');
     elements.p2Gameboard.classList.toggle('grid-disabled');
+    elements.p2Gameboard.classList.toggle('hide');
     elements.p2Gameboard.classList.toggle('show');
     elements.startBtn.classList.remove('show');
     elements.autoPlaceBtn.classList.remove('show');
