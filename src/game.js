@@ -1,4 +1,5 @@
 import View from "./view";
+import Drag from "./drag";
 import { elements } from "./elements";
 import Player from "./player";
 import gameBoard from "./gameBoard"
@@ -19,8 +20,10 @@ const Game = (type) => {
   const p1Board = gameBoard();
   const p2Board = gameBoard();
 
+  //Create drag for Drag-N-Drop
+  const drag = Drag(p1, p1Board);
 
-  //Reset game
+  //Reset GamegetShips
   const resetGame = () => {
     p1.resetShips();
     p2.resetShips();
@@ -28,10 +31,22 @@ const Game = (type) => {
     p2Board.reset();
   };
 
+  const addRotateEventListeners = () => {
+    const ships = document.querySelectorAll('.ship');
+    ships.forEach((ship) => {
+      ship.addEventListener('dblclick', (e) => {
+        const shipElement = e.target.parentElement;
+        const ship = p1.getShips()[shipElement.dataset.ship];
+        ship.changeDirection();
+        shipElement.classList.toggle('vertical');
+      });
+    });
+  };
 
   const renderFleet = () => {
     View.renderFleet(p1.getShips());
     drag.addDragAndDropEvenListeners();
+    addRotateEventListeners();
   };
 
   //Bind event for p1 'human' player
