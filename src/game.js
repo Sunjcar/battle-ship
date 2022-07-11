@@ -6,8 +6,8 @@ import gameBoard from "./gameBoard"
 
 const Game = (type) => {
 
-  const winSound = new Audio ('../dist/audio/Win.mp3')
-  const loseSound = new Audio ('../dist/audio/lose.wav')
+  const winSound = new Audio ('../audio/Win.mp3')
+  const loseSound = new Audio ('../audio/lose.wav')
   //Create Players
   const p1 = Player('human');
   let p2;

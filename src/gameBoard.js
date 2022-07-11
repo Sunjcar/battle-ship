@@ -52,8 +52,8 @@ const gameBoard = () => {
     }
     return cells.every((cell) => cell === null);
   };
-  let hitSound = new Audio ('../dist/audio/sounds_explosion.wav')
-  let missSound = new Audio('../dist/audio/sounds_splash.wav')
+  let hitSound = new Audio ('../audio/sounds_explosion.wav')
+  let missSound = new Audio('../audio/sounds_splash.wav')
   const receiveAttack = (y, x) => {
     if(board[y][x] === null) {
         board[y][x] = 'miss'
