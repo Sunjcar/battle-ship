@@ -118,7 +118,6 @@ const Game = (type) => {
     autoPlace,
     startGame,
     playAgain,
-    winSound,
   };
 };
 export default Game

@@ -1,5 +1,6 @@
 import Game from './game';
 import { elements } from './elements';
+import { winSound } from './music';
 
 //Bind Events
 
@@ -20,5 +21,5 @@ elements.startBtn.addEventListener('click', (e) => {
 
 elements.playAgainBtn.addEventListener('click', (e) => {
   game.playAgain();
-  game.winSound.pause()
+  winSound.pause()
 });
