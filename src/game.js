@@ -3,11 +3,10 @@ import Drag from "./drag";
 import { elements } from "./elements";
 import Player from "./player";
 import gameBoard from "./gameBoard"
+import { winSound, loseSound } from "./music";
 
 const Game = (type) => {
 
-  const winSound = new Audio ('../audio/Win.mp3')
-  const loseSound = new Audio ('../audio/lose.wav')
   //Create Players
   const p1 = Player('human');
   let p2;
